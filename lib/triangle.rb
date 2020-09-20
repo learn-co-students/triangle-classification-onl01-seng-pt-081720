@@ -1,3 +1,62 @@
+require 'pry'
+
 class Triangle
-  # write code here
+  attr_accessor :equilateral, :isosceles, :scalene
+
+  def initialize(side1, side2, side3)
+    @side1 = side1
+    @side2 = side2
+    @side3 = side3
+  end
+
+  def kind
+    if @side1 <= 0 || @side2 <= 0 || @side3 <= 0
+      raise TriangleError
+    elsif @side1 + @side2 <= @side3 || @side2 + @side3 <= @side1 || @side1 + @side3 <= @side2
+      raise TriangleError
+    else 
+      if @side1 == @side2 && @side2 == @side3
+        :equilateral
+      elsif @side1 == @side2 || @side2 == @side3 || @side1 == @side3
+        :isosceles
+      else 
+        :scalene
+      end
+    end
+  end
+
+  class TriangleError < StandardError
+    # triangle error code
+  end
+
 end
+
+
+
+
+# class Person
+#   attr_accessor :partner, :name
+ 
+#   def initialize(name)
+#     @name = name
+#   end
+ 
+#   def get_married(person)
+#     self.partner = person
+#     if person.class != Person
+#       begin
+#         raise PartnerError
+#       rescue PartnerError => error
+#           puts error.message
+#       end
+#     else
+#       person.partner = self
+#     end
+#   end
+ 
+#   class PartnerError < StandardError
+#     def message
+#       "you must give the get_married method an argument of an instance of the person class!"
+#     end
+#   end
+# end
