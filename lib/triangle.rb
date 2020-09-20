@@ -9,25 +9,13 @@ class Triangle
 
   def kind 
     if @first == 0 || @second == 0 || @third == 0
-      begin
         raise TriangleError
-      rescue TriangleError => error
-        puts error.message_zero
-      end
-
+    
     elsif @first < 0 || @second < 0 || @third < 0
-      begin
         raise TriangleError
-      rescue TriangleError => error
-        puts error.message_negative
-      end
 
-    elsif @first + @second < @third || @first + @third < @second || @second + @third < @first
-      begin
+    elsif ((@first + @second) <= @third) || ((@first + @third) <= @second) || ((@second + @third) <= @first)
         raise TriangleError
-      rescue TriangleError => error
-        puts error.message_inequality
-      end
 
     elsif @first == @second && @second == @third
       return :equilateral
