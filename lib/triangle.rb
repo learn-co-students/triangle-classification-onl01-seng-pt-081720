@@ -12,12 +12,11 @@ class Triangle
   if @base ==@length = @height
     then 
     :equilateral
-    elsif @base == @length || @base == @height || @length == @height 
+    elsif (@base == @length) || (@base == @height) || (@length == @height) 
     then 
   :isosceles
-  elsif 
-  @base != @length && @base != @height && @length != @height
-  then 
+elsif 
+(@base != @length) && (@length != @height) && (@base != @height)
   :scalene
   end 
 end 
