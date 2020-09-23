@@ -8,8 +8,13 @@ class Triangle
    @height = height
  end 
  
- def kind 
-  if @base ==@length = @height
+ def kind
+   if (@base <= 0) || (@length <= 0) || (@height <=0)
+     raise TriangleError
+   elsif
+   (@base + @length <= @height) || (@base + @height <= @length) || (@length + @height <= @base) 
+   raise TriangleError
+  elsif @base ==@length = @height
     then 
     :equilateral
     elsif (@base == @length) || (@base == @height) || (@length == @height) 
@@ -20,5 +25,6 @@ elsif
   :scalene
   end 
 end 
- 
+ class TriangleError < StandardError
+ end 
 end
