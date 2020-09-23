@@ -9,12 +9,16 @@ class Triangle
  end 
  
  def kind 
-  if @base = @length = @height
+  if @base ==@length = @height
     then 
     :equilateral
-    elsif @base = @length || @base = @height || @length = @height 
+    elsif @base == @length || @base == @height || @length == @height 
     then 
   :isosceles
+  elsif 
+  @base != @length && @base != @height && @length != @height
+  then 
+  :scalene
   end 
 end 
  
